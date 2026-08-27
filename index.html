@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav VS | Business & Management Portfolio</title>
-    <meta name="description" content="Portfolio of Pranav VS - Commerce Student at Kumaraguru College of Liberal Arts and Science (Class of 2028) passionate about Business Strategy, Management, and Financial Analysis.">
+    <title>Pranav VS | Business, Innovation & Management Portfolio</title>
+    <meta name="description" content="Portfolio of Pranav VS - Innovation Engineer Trainee at PRICE ProtoSem and Commerce Student at Kumaraguru College of Liberal Arts and Science.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,9 +71,9 @@
         }
 
         .glass-nav {
-            background: rgba(10, 15, 29, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
@@ -111,14 +111,34 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #2563eb;
         }
+
+        /* Week card animations */
+        .week-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .week-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(96, 165, 250, 0.6);
+            background: rgba(30, 58, 138, 0.25);
+            box-shadow: 0 15px 30px -10px rgba(37, 99, 235, 0.3);
+        }
+        .week-card:hover .week-number {
+            color: #60a5fa;
+            transform: scale(1.05);
+        }
+        .week-card:hover .week-arrow {
+            transform: translateX(3px);
+            color: #93c5fd;
+        }
     </style>
 </head>
 <body class="bg-[#070b14] text-slate-200 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen relative overflow-x-hidden">
 
     <!-- Ambient Gradient Backdrops -->
     <div class="glow-sphere w-[500px] h-[500px] bg-blue-600/15 top-[-100px] left-[-100px]"></div>
-    <div class="glow-sphere w-[600px] h-[600px] bg-indigo-600/10 top-[35%] right-[-150px]"></div>
-    <div class="glow-sphere w-[500px] h-[500px] bg-cyan-600/10 bottom-[10%] left-[-100px]"></div>
+    <div class="glow-sphere w-[600px] h-[600px] bg-indigo-600/10 top-[28%] right-[-150px]"></div>
+    <div class="glow-sphere w-[600px] h-[600px] bg-cyan-600/10 top-[55%] left-[-150px]"></div>
+    <div class="glow-sphere w-[500px] h-[500px] bg-blue-600/10 bottom-[10%] right-[-100px]"></div>
 
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
@@ -129,13 +149,17 @@
                 </div>
                 <div class="flex flex-col">
                     <span class="font-heading font-bold text-lg text-white tracking-tight group-hover:text-brand-400 transition-colors">Pranav VS</span>
-                    <span class="text-xs text-slate-400 font-medium">B.Com &bull; Business & Management</span>
+                    <span class="text-xs text-slate-400 font-medium">B.Com &bull; PRICE ProtoSem Trainee</span>
                 </div>
             </a>
             
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+            <div class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-300">
                 <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
-                <a href="#journey" class="hover:text-brand-400 transition-colors">Learning Journey</a>
+                <a href="#journey" class="hover:text-brand-400 transition-colors">Journey</a>
+                <a href="#protosem" class="text-brand-400 hover:text-brand-300 transition-colors flex items-center space-x-1 font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+                    <span>ProtoSem</span>
+                </a>
                 <a href="#competencies" class="hover:text-brand-400 transition-colors">Competencies</a>
                 <a href="#projects" class="hover:text-brand-400 transition-colors">Case Studies</a>
                 <a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a>
@@ -158,7 +182,7 @@
             <div class="flex-1 space-y-6 text-center lg:text-left">
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-500/30 text-brand-300 text-xs font-semibold uppercase tracking-wider">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    <span>Class of 2028 &bull; Future Business Leader</span>
+                    <span>Innovation Engineer Trainee &bull; Class of 2028</span>
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-tight leading-[1.15]">
@@ -170,13 +194,13 @@
                 </div>
 
                 <p class="text-slate-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                    Undergraduate commerce student at <span class="text-slate-200 font-semibold">Kumaraguru College of Liberal Arts and Science</span>. Driven by business strategy, financial acumen, and organizational leadership to solve real-world corporate challenges.
+                    Undergraduate commerce student at <span class="text-slate-200 font-semibold">Kumaraguru College of Liberal Arts and Science</span> & Trainee at <span class="text-brand-300 font-semibold">PRICE ProtoSem</span>. Solving real-world retail, commerce, and management challenges through analytical problem-solving and innovative systems.
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="#contact" class="magnetic-btn px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-xl shadow-brand-600/30 flex items-center space-x-2">
-                        <i data-lucide="send" class="w-4 h-4"></i>
-                        <span>Get In Touch</span>
+                    <a href="#protosem" class="magnetic-btn px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-xl shadow-brand-600/30 flex items-center space-x-2">
+                        <i data-lucide="compass" class="w-4 h-4"></i>
+                        <span>Explore ProtoSem Journey</span>
                     </a>
                     <a href="https://www.linkedin.com/in/pranav-vs-062616373" target="_blank" rel="noopener noreferrer" class="magnetic-btn px-6 py-3 rounded-xl glass-card hover:bg-slate-800/80 text-slate-200 font-semibold text-sm border border-slate-700/60 flex items-center space-x-2">
                         <i data-lucide="linkedin" class="w-4 h-4 text-brand-400"></i>
@@ -203,30 +227,30 @@
                         </div>
                         <div>
                             <h3 class="font-heading font-bold text-xl text-white">Pranav VS</h3>
-                            <p class="text-sm text-brand-400 font-medium">B.Com Candidate (2024–2028)</p>
-                            <p class="text-xs text-slate-400 mt-0.5">KCLAS &bull; Coimbatore</p>
+                            <p class="text-sm text-brand-400 font-medium">Innovation Engineer Trainee</p>
+                            <p class="text-xs text-slate-400 mt-0.5">PRICE ProtoSem &bull; KCLAS</p>
                         </div>
                     </div>
 
                     <div class="space-y-3.5 my-6 text-sm">
                         <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-                            <span class="text-slate-400 text-xs">Primary Discipline</span>
-                            <span class="font-semibold text-slate-200 text-xs">Commerce & Business</span>
+                            <span class="text-slate-400 text-xs">Active Programme</span>
+                            <span class="font-semibold text-brand-300 text-xs">PRICE ProtoSem (20 Weeks)</span>
                         </div>
                         <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-                            <span class="text-slate-400 text-xs">Core Aspiration</span>
-                            <span class="font-semibold text-brand-300 text-xs">Corporate Management</span>
+                            <span class="text-slate-400 text-xs">Academic Degree</span>
+                            <span class="font-semibold text-slate-200 text-xs">B.Com (Class of 2028)</span>
                         </div>
                         <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-                            <span class="text-slate-400 text-xs">Analytical Toolkit</span>
-                            <span class="font-semibold text-slate-200 text-xs">Excel & Market Insights</span>
+                            <span class="text-slate-400 text-xs">Domain Focus</span>
+                            <span class="font-semibold text-slate-200 text-xs">Phygital Retail & Commerce</span>
                         </div>
                     </div>
 
                     <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
                         <span class="flex items-center space-x-1.5">
                             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
-                            <span>Open to Internships</span>
+                            <span>Open to Opportunities</span>
                         </span>
                         <a href="mailto:pranavsathya06@gmail.com" class="text-brand-400 hover:text-brand-300 font-medium flex items-center space-x-1">
                             <span>Email Me</span>
@@ -242,7 +266,7 @@
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Background</span>
                 <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">About Me & Academic Roots</h2>
-                <p class="text-slate-400 text-sm">Building foundational business acumen with an analytical and forward-thinking mindset.</p>
+                <p class="text-slate-400 text-sm">Building foundational commerce acumen combined with real-world innovation methodologies.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -254,7 +278,7 @@
                     <h3 class="text-xl font-bold font-heading text-white">Bachelor of Commerce (B.Com)</h3>
                     <p class="text-sm font-semibold text-brand-400">Kumaraguru College of Liberal Arts and Science &bull; 2024 – 2028</p>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Currently immersing in core commercial frameworks including Corporate Financial Principles, Business Economics, Cost Accounting, and Organizational Behavior. Actively developing practical analytical perspectives to evaluate market dynamics and commercial viability.
+                        Currently developing rigorous grounding in Financial Principles, Managerial Economics, Cost Accounting, and Commercial Operations. Actively bridging classroom frameworks with applied industrial problem-solving through hands-on innovation programmes.
                     </p>
                     <div class="flex flex-wrap gap-2 pt-2">
                         <span class="px-3 py-1 text-xs rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-300">Financial Accounting</span>
@@ -271,21 +295,21 @@
                     </div>
                     <h3 class="text-xl font-bold font-heading text-white">Career Vision</h3>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        To blend rigorous financial literacy with strategic management methodologies, preparing to deliver measurable value in consulting, operational leadership, and corporate governance.
+                        To merge financial discipline and corporate strategy with emerging retail technologies, data analytics, and scalable business innovation.
                     </p>
                     <div class="p-3 rounded-xl bg-brand-950/50 border border-brand-500/20 text-xs text-brand-300">
                         <span class="font-semibold block mb-1">Focus Areas:</span>
-                        Strategic Growth, Financial Modeling, Market Research & Enterprise Planning.
+                        Strategic Growth, Financial Literacy, Intelligent Commerce & Enterprise Leadership.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: LEARNING JOURNEY & STRATEGIC FOCUS (Reframed Experience Failsafe) -->
+        <!-- SECTION: LEARNING JOURNEY & STRATEGIC FOCUS -->
         <section id="journey" class="space-y-8">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Growth Pathway</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">Learning Journey & Strategic Focus</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">Learning Journey & Foundations</h2>
                 <p class="text-slate-400 text-sm">A structured progression of skills, industry coursework, and business case explorations.</p>
             </div>
 
@@ -353,6 +377,151 @@
                     </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- DEDICATED SECTION: PROTOSEM (PRICE ProtoSem 20-Week Innovation Programme) -->
+        <section id="protosem" class="space-y-12 scroll-mt-28">
+            
+            <!-- Section Intro -->
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-brand-500/30 relative overflow-hidden space-y-8">
+                <div class="absolute -top-32 -right-32 w-80 h-80 bg-brand-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-800/80 pb-8">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-950/90 border border-brand-500/40 text-brand-300 text-xs font-bold uppercase tracking-widest">
+                            <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                            <span>PROTOSEM</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
+                            PRICE ProtoSem
+                        </h2>
+                        <div class="flex flex-wrap items-center gap-3 text-sm font-semibold">
+                            <span class="text-brand-300 px-3 py-1 rounded-lg bg-brand-950/80 border border-brand-500/30">
+                                Role: Innovation Engineer Trainee
+                            </span>
+                            <span class="text-slate-400 px-3 py-1 rounded-lg bg-slate-900 border border-slate-800">
+                                20-Week Industry-Integrated Innovation Programme
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Programme Visual Progress Indicator -->
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 min-w-[280px]">
+                        <div class="flex items-center justify-between text-xs text-slate-400 font-semibold">
+                            <span>Programme Progress</span>
+                            <span class="text-brand-400">20-Week Arc</span>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-300 pt-1">
+                            <span class="text-brand-400 font-bold">W01</span>
+                            <div class="flex-1 mx-2 h-1 bg-slate-800 rounded-full overflow-hidden flex items-center">
+                                <div class="w-full h-full bg-gradient-to-r from-brand-600 via-blue-500 to-indigo-500 opacity-60"></div>
+                            </div>
+                            <span class="text-slate-400">W05</span>
+                            <div class="flex-1 mx-2 h-1 bg-slate-800 rounded-full overflow-hidden flex items-center">
+                                <div class="w-full h-full bg-slate-700 opacity-40"></div>
+                            </div>
+                            <span class="text-slate-400">W10</span>
+                            <div class="flex-1 mx-2 h-1 bg-slate-800 rounded-full overflow-hidden flex items-center">
+                                <div class="w-full h-full bg-slate-700 opacity-40"></div>
+                            </div>
+                            <span class="text-slate-400">W15</span>
+                            <div class="flex-1 mx-2 h-1 bg-slate-800 rounded-full overflow-hidden flex items-center">
+                                <div class="w-full h-full bg-slate-700 opacity-40"></div>
+                            </div>
+                            <span class="text-slate-400">W20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programme Purpose Description -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-4">
+                        <h3 class="text-lg font-bold font-heading text-white">Programme Purpose & Mission</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.
+                        </p>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-4 p-5 rounded-2xl bg-brand-950/40 border border-brand-500/20 space-y-2">
+                        <div class="text-xs font-bold text-brand-300 uppercase tracking-wider flex items-center space-x-1.5">
+                            <i data-lucide="layers" class="w-4 h-4 text-brand-400"></i>
+                            <span>Journey Architecture</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            <strong>ONE PROGRAMME</strong> &bull; <strong>FOUR PHASES</strong> &bull; <strong>TWENTY WEEKS</strong>
+                        </p>
+                        <p class="text-[11px] text-slate-400">
+                            Each week represents a distinct stage in discovery, validation, prototyping, and solution deployment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Domain / Focus Tags (Programme Disciplines) -->
+                <div class="space-y-4 pt-4 border-t border-slate-800/80">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Programme Focus Disciplines</div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/40 transition-colors flex items-center space-x-2.5">
+                            <i data-lucide="store" class="w-4 h-4 text-brand-400 shrink-0"></i>
+                            <span class="text-xs font-semibold text-slate-200">Phygital Retail & Intelligent Commerce</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/40 transition-colors flex items-center space-x-2.5">
+                            <i data-lucide="cpu" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                            <span class="text-xs font-semibold text-slate-200">AI & Analytics</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/40 transition-colors flex items-center space-x-2.5">
+                            <i data-lucide="wifi" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                            <span class="text-xs font-semibold text-slate-200">Intelligent Systems & IoT</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/40 transition-colors flex items-center space-x-2.5">
+                            <i data-lucide="box" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                            <span class="text-xs font-semibold text-slate-200">Prototyping</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/40 transition-colors flex items-center space-x-2.5 col-span-2 sm:col-span-1">
+                            <i data-lucide="rocket" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <span class="text-xs font-semibold text-slate-200">Entrepreneurship</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- THE 20-WEEK JOURNEY WITH PHASE NAVIGATION -->
+            <div class="space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="text-2xl font-bold font-heading text-white">The 20-Week Programme Archive</h3>
+                        <p class="text-xs text-slate-400">Explore chronological field notes and future weekly project logs.</p>
+                    </div>
+
+                    <!-- Phase Navigation Filters -->
+                    <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs font-medium" id="phase-filters">
+                        <button onclick="filterPhase('all')" class="phase-btn active px-3 py-1.5 rounded-xl bg-brand-600 text-white font-semibold shadow transition-all" data-phase="all">
+                            ALL WEEKS
+                        </button>
+                        <button onclick="filterPhase('1')" class="phase-btn px-3 py-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all" data-phase="1">
+                            PHASE 01 (W01–05)
+                        </button>
+                        <button onclick="filterPhase('2')" class="phase-btn px-3 py-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all" data-phase="2">
+                            PHASE 02 (W06–10)
+                        </button>
+                        <button onclick="filterPhase('3')" class="phase-btn px-3 py-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all" data-phase="3">
+                            PHASE 03 (W11–15)
+                        </button>
+                        <button onclick="filterPhase('4')" class="phase-btn px-3 py-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all" data-phase="4">
+                            PHASE 04 (W16–20)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 20-Week Progression Grid (Data-driven rendered) -->
+                <div id="weeks-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    <!-- Week cards dynamically populated by JavaScript -->
+                </div>
+            </div>
+
         </section>
 
         <!-- SECTION: CORE COMPETENCIES & TOOLKIT -->
@@ -514,11 +683,11 @@
                 </div>
 
                 <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
-                    Ready to Collaborate & Learn
+                    Ready to Collaborate & Innovate
                 </h2>
 
                 <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-                    I am actively seeking internship opportunities, mentorship, and business projects to apply my commerce foundations and drive mutual growth.
+                    I am actively exploring internship opportunities, industry mentorship, and commerce innovation projects. Let's connect!
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -540,19 +709,37 @@
 
     </main>
 
+    <!-- Modal / Toast for Week Placeholders -->
+    <div id="week-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300">
+        <div class="glass-card max-w-md w-full p-6 sm:p-8 rounded-3xl border border-brand-500/40 text-center space-y-4 shadow-2xl relative">
+            <div class="w-12 h-12 rounded-2xl bg-brand-950/90 border border-brand-500/40 text-brand-400 mx-auto flex items-center justify-center">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <div class="space-y-1">
+                <span id="modal-phase" class="text-xs font-bold text-brand-400 uppercase tracking-widest">PHASE 01</span>
+                <h3 id="modal-title" class="text-2xl font-bold font-heading text-white">WEEK 01</h3>
+                <p class="text-xs text-slate-400 font-medium">PRICE ProtoSem Field Notes</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                🚀 This week's comprehensive project story and problem-solving log is currently in progress. Weekly field notes will be published as the programme progresses!
+            </div>
+            <button onclick="closeWeekModal()" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs shadow-lg transition-colors">
+                Got it
+            </button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="border-t border-slate-800/80 py-10 text-center text-xs text-slate-500 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>&copy; 2024–2028 Pranav VS. All rights reserved.</p>
             <p class="flex items-center space-x-1">
-                <span>Designed with</span>
-                <span class="text-brand-400">&hearts;</span>
-                <span>for Business & Management Leadership</span>
+                <span>PRICE ProtoSem &bull; Commerce & Innovation</span>
             </p>
         </div>
     </footer>
 
-    <!-- Initialize Scripts -->
+    <!-- Initialize Scripts & Data-Driven ProtoSem Architecture -->
     <script>
         // Lucide Icons
         lucide.createIcons();
@@ -560,18 +747,113 @@
         // Typed.js Initialization
         var typed = new Typed('#typed-text', {
             strings: [
-                'Commerce Student @ KCLAS',
-                'Aspiring Business Strategist',
-                'Financial & Market Analyst',
-                'Future Management Leader'
+                'Innovation Engineer Trainee @ ProtoSem',
+                'Commerce Student @ KCLAS (2028)',
+                'Phygital Retail & AI Enthusiast',
+                'Future Business & Strategy Leader'
             ],
-            typeSpeed: 45,
+            typeSpeed: 40,
             backSpeed: 25,
             backDelay: 1800,
             loop: true
         });
 
-        // VanillaTilt is auto-initialized via data-tilt attributes
+        // 20-Week ProtoSem Data Model (Future Blog Readiness)
+        const protoSemWeeks = [
+            { week: 1, phase: 1, title: "", slug: "week-01", status: "FIELD NOTES IN PROGRESS" },
+            { week: 2, phase: 1, title: "", slug: "week-02", status: "COMING SOON" },
+            { week: 3, phase: 1, title: "", slug: "week-03", status: "COMING SOON" },
+            { week: 4, phase: 1, title: "", slug: "week-04", status: "COMING SOON" },
+            { week: 5, phase: 1, title: "", slug: "week-05", status: "COMING SOON" },
+            { week: 6, phase: 2, title: "", slug: "week-06", status: "COMING SOON" },
+            { week: 7, phase: 2, title: "", slug: "week-07", status: "COMING SOON" },
+            { week: 8, phase: 2, title: "", slug: "week-08", status: "COMING SOON" },
+            { week: 9, phase: 2, title: "", slug: "week-09", status: "COMING SOON" },
+            { week: 10, phase: 2, title: "", slug: "week-10", status: "COMING SOON" },
+            { week: 11, phase: 3, title: "", slug: "week-11", status: "COMING SOON" },
+            { week: 12, phase: 3, title: "", slug: "week-12", status: "COMING SOON" },
+            { week: 13, phase: 3, title: "", slug: "week-13", status: "COMING SOON" },
+            { week: 14, phase: 3, title: "", slug: "week-14", status: "COMING SOON" },
+            { week: 15, phase: 3, title: "", slug: "week-15", status: "COMING SOON" },
+            { week: 16, phase: 4, title: "", slug: "week-16", status: "COMING SOON" },
+            { week: 17, phase: 4, title: "", slug: "week-17", status: "COMING SOON" },
+            { week: 18, phase: 4, title: "", slug: "week-18", status: "COMING SOON" },
+            { week: 19, phase: 4, title: "", slug: "week-19", status: "COMING SOON" },
+            { week: 20, phase: 4, title: "", slug: "week-20", status: "COMING SOON" }
+        ];
+
+        function renderWeekCards(filterPhaseNum = 'all') {
+            const container = document.getElementById('weeks-container');
+            container.innerHTML = '';
+
+            const filtered = filterPhaseNum === 'all' 
+                ? protoSemWeeks 
+                : protoSemWeeks.filter(w => w.phase.toString() === filterPhaseNum.toString());
+
+            filtered.forEach(item => {
+                const weekFormatted = String(item.week).padStart(2, '0');
+                const phaseFormatted = String(item.phase).padStart(2, '0');
+                
+                const card = document.createElement('div');
+                card.className = "week-card glass-card p-5 rounded-2xl cursor-pointer relative overflow-hidden flex flex-col justify-between min-h-[140px] group";
+                card.setAttribute('data-week', item.week);
+                card.setAttribute('data-phase', item.phase);
+                card.onclick = () => openWeekModal(item.week, item.phase);
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between text-xs text-slate-400">
+                        <span class="text-[10px] font-bold font-mono text-brand-400 tracking-wider">PHASE ${phaseFormatted}</span>
+                        <div class="w-2 h-2 rounded-full bg-brand-500/40 group-hover:bg-brand-400 transition-colors"></div>
+                    </div>
+                    <div class="my-2 space-y-1">
+                        <div class="week-number font-heading font-extrabold text-xl sm:text-2xl text-white tracking-tight transition-transform">
+                            WEEK ${weekFormatted}
+                        </div>
+                        <div class="text-[11px] font-semibold text-slate-400 group-hover:text-brand-300 transition-colors tracking-wide">
+                            ${item.status}
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-[10px] text-slate-500 group-hover:text-slate-300 transition-colors pt-2 border-t border-slate-800/80">
+                        <span>Future Story / Blog</span>
+                        <i data-lucide="arrow-right" class="week-arrow w-3.5 h-3.5 text-slate-400 transition-transform"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        function filterPhase(phaseVal) {
+            document.querySelectorAll('.phase-btn').forEach(btn => {
+                if (btn.getAttribute('data-phase') === phaseVal) {
+                    btn.className = "phase-btn active px-3 py-1.5 rounded-xl bg-brand-600 text-white font-semibold shadow transition-all";
+                } else {
+                    btn.className = "phase-btn px-3 py-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all";
+                }
+            });
+            renderWeekCards(phaseVal);
+        }
+
+        function openWeekModal(weekNum, phaseNum) {
+            const modal = document.getElementById('week-modal');
+            const weekFormatted = String(weekNum).padStart(2, '0');
+            const phaseFormatted = String(phaseNum).padStart(2, '0');
+
+            document.getElementById('modal-phase').innerText = `PHASE ${phaseFormatted}`;
+            document.getElementById('modal-title').innerText = `WEEK ${weekFormatted}`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeWeekModal() {
+            const modal = document.getElementById('week-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Initialize Render
+        renderWeekCards('all');
     </script>
 </body>
 </html>
