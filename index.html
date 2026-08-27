@@ -779,9 +779,42 @@
         // 20-Week ProtoSem Data Model with Published Week 01 Story
         const protoSemWeeks = [
             { 
+                week: 0, 
+                phase: 1, 
+                title: "Week 0: Building Foundations", 
+                slug: "week-00", 
+                status: "FIELD NOTES PUBLISHED",
+                isPublished: true,
+                content: `
+                    <div class="space-y-6">
+                        <!-- Headline & Tag -->
+                        <div>
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-semibold">
+                                ★ Published Journey Update
+                            </span>
+                            <h4 class="text-xl font-bold font-heading text-white mt-2">
+                                Week 0: The Marshmallow Challenge & Team Dynamics
+                            </h4>
+                        </div>
+
+                        <!-- Week 0 Narrative -->
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+                            <div class="flex items-center space-x-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                                <i data-lucide="users" class="w-4 h-4 text-brand-400"></i>
+                                <span>Foundations & Communication</span>
+                            </div>
+                            <img src="images/marshmallow.jpeg" alt="Marshmallow Challenge" onerror="this.style.display='none'" class="w-full h-auto rounded-xl border border-slate-700/50 shadow-lg object-cover max-h-[300px] object-center">
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                I am excited to start documenting my journey here! We kicked off Week 0 with the Marshmallow Challenge. From my perspective, this was much more than an icebreaker—it was a practical exercise intentionally designed to test my learning capacity, adaptability, and problem-solving skills. Most importantly, it served as a great foundation for learning how to effectively communicate and collaborate with my team under constraints.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            { 
                 week: 1, 
                 phase: 1, 
-                title: "Journey Update: Week 0 & Week 1 at Anti Gravity", 
+                title: "Week 1: Exploring F&B Sector Evolution", 
                 slug: "week-01", 
                 status: "FIELD NOTES PUBLISHED",
                 isPublished: true,
@@ -793,27 +826,15 @@
                                 ★ Published Journey Update
                             </span>
                             <h4 class="text-xl font-bold font-heading text-white mt-2">
-                                Journey Update: Week 0 & Week 1 at Anti Gravity
+                                Week 1: Exploring F&B Sector Evolution
                             </h4>
-                        </div>
-
-                        <!-- Week 0 Narrative -->
-                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
-                            <div class="flex items-center space-x-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
-                                <i data-lucide="users" class="w-4 h-4 text-brand-400"></i>
-                                <span>Week 0: The Marshmallow Challenge & Team Dynamics</span>
-                            </div>
-                            <img src="images/marshmallow.jpeg" alt="Marshmallow Challenge" onerror="this.style.display='none'" class="w-full h-auto rounded-xl border border-slate-700/50 shadow-lg object-cover max-h-[300px] object-center">
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                I am excited to start documenting my journey here! We kicked off Week 0 with the Marshmallow Challenge. From my perspective, this was much more than an icebreaker—it was a practical exercise intentionally designed to test my learning capacity, adaptability, and problem-solving skills. Most importantly, it served as a great foundation for learning how to effectively communicate and collaborate with my team under constraints.
-                            </p>
                         </div>
 
                         <!-- Week 1 Narrative -->
                         <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
                             <div class="flex items-center space-x-2 text-indigo-300 font-bold text-xs uppercase tracking-wider">
                                 <i data-lucide="store" class="w-4 h-4 text-indigo-400"></i>
-                                <span>Week 1: Exploring F&B Sector Evolution</span>
+                                <span>Industry Research</span>
                             </div>
                             <img src="images/presentation.jpeg" alt="F&B Sector Evolution" onerror="this.style.display='none'" class="w-full h-auto rounded-xl border border-slate-700/50 shadow-lg object-cover max-h-[300px] object-center">
                             <p class="text-xs text-slate-300 leading-relaxed">
