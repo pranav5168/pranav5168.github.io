@@ -130,6 +130,12 @@
             transform: translateX(3px);
             color: #93c5fd;
         }
+
+        /* Published card highlight */
+        .week-card.published {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(37, 99, 235, 0.12);
+        }
     </style>
 </head>
 <body class="bg-[#070b14] text-slate-200 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen relative overflow-x-hidden">
@@ -409,12 +415,12 @@
                     <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 min-w-[280px]">
                         <div class="flex items-center justify-between text-xs text-slate-400 font-semibold">
                             <span>Programme Progress</span>
-                            <span class="text-brand-400">20-Week Arc</span>
+                            <span class="text-emerald-400 font-mono">Week 01 Active</span>
                         </div>
                         <div class="flex items-center justify-between text-[11px] font-mono text-slate-300 pt-1">
-                            <span class="text-brand-400 font-bold">W01</span>
-                            <div class="flex-1 mx-2 h-1 bg-slate-800 rounded-full overflow-hidden flex items-center">
-                                <div class="w-full h-full bg-gradient-to-r from-brand-600 via-blue-500 to-indigo-500 opacity-60"></div>
+                            <span class="text-emerald-400 font-bold">W01</span>
+                            <div class="flex-1 mx-2 h-1.5 bg-slate-800 rounded-full overflow-hidden flex items-center">
+                                <div class="w-[15%] h-full bg-gradient-to-r from-emerald-500 to-brand-500 rounded-full shadow-sm shadow-emerald-500/50"></div>
                             </div>
                             <span class="text-slate-400">W05</span>
                             <div class="flex-1 mx-2 h-1 bg-slate-800 rounded-full overflow-hidden flex items-center">
@@ -493,7 +499,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                         <h3 class="text-2xl font-bold font-heading text-white">The 20-Week Programme Archive</h3>
-                        <p class="text-xs text-slate-400">Explore chronological field notes and future weekly project logs.</p>
+                        <p class="text-xs text-slate-400">Explore chronological field notes and weekly innovation logs.</p>
                     </div>
 
                     <!-- Phase Navigation Filters -->
@@ -709,23 +715,35 @@
 
     </main>
 
-    <!-- Modal / Toast for Week Placeholders -->
-    <div id="week-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300">
-        <div class="glass-card max-w-md w-full p-6 sm:p-8 rounded-3xl border border-brand-500/40 text-center space-y-4 shadow-2xl relative">
-            <div class="w-12 h-12 rounded-2xl bg-brand-950/90 border border-brand-500/40 text-brand-400 mx-auto flex items-center justify-center">
-                <i data-lucide="book-open" class="w-6 h-6"></i>
+    <!-- Modal / Drawer for Weekly Field Notes & Blog Stories -->
+    <div id="week-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 transition-all duration-300 overflow-y-auto">
+        <div class="glass-card max-w-2xl w-full p-6 sm:p-9 rounded-3xl border border-brand-500/40 text-left space-y-6 shadow-2xl relative my-8 max-h-[90vh] overflow-y-auto">
+            
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-950 border border-brand-500/40 text-brand-400 flex items-center justify-center">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span id="modal-phase" class="text-[11px] font-mono font-bold text-brand-400 tracking-widest uppercase">PHASE 01</span>
+                        <h3 id="modal-title" class="text-xl sm:text-2xl font-bold font-heading text-white">WEEK 01</h3>
+                    </div>
+                </div>
+                <button onclick="closeWeekModal()" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
             </div>
-            <div class="space-y-1">
-                <span id="modal-phase" class="text-xs font-bold text-brand-400 uppercase tracking-widest">PHASE 01</span>
-                <h3 id="modal-title" class="text-2xl font-bold font-heading text-white">WEEK 01</h3>
-                <p class="text-xs text-slate-400 font-medium">PRICE ProtoSem Field Notes</p>
+
+            <div id="modal-body" class="space-y-5 text-sm text-slate-300 leading-relaxed">
+                <!-- Injected via JavaScript -->
             </div>
-            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 leading-relaxed">
-                🚀 This week's comprehensive project story and problem-solving log is currently in progress. Weekly field notes will be published as the programme progresses!
+
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500">PRICE ProtoSem Weekly Field Log</span>
+                <button onclick="closeWeekModal()" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs shadow-lg transition-colors cursor-pointer">
+                    Close Story
+                </button>
             </div>
-            <button onclick="closeWeekModal()" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs shadow-lg transition-colors">
-                Got it
-            </button>
         </div>
     </div>
 
@@ -758,28 +776,92 @@
             loop: true
         });
 
-        // 20-Week ProtoSem Data Model (Future Blog Readiness)
+        // 20-Week ProtoSem Data Model with Published Week 01 Story
         const protoSemWeeks = [
-            { week: 1, phase: 1, title: "", slug: "week-01", status: "FIELD NOTES IN PROGRESS" },
-            { week: 2, phase: 1, title: "", slug: "week-02", status: "COMING SOON" },
-            { week: 3, phase: 1, title: "", slug: "week-03", status: "COMING SOON" },
-            { week: 4, phase: 1, title: "", slug: "week-04", status: "COMING SOON" },
-            { week: 5, phase: 1, title: "", slug: "week-05", status: "COMING SOON" },
-            { week: 6, phase: 2, title: "", slug: "week-06", status: "COMING SOON" },
-            { week: 7, phase: 2, title: "", slug: "week-07", status: "COMING SOON" },
-            { week: 8, phase: 2, title: "", slug: "week-08", status: "COMING SOON" },
-            { week: 9, phase: 2, title: "", slug: "week-09", status: "COMING SOON" },
-            { week: 10, phase: 2, title: "", slug: "week-10", status: "COMING SOON" },
-            { week: 11, phase: 3, title: "", slug: "week-11", status: "COMING SOON" },
-            { week: 12, phase: 3, title: "", slug: "week-12", status: "COMING SOON" },
-            { week: 13, phase: 3, title: "", slug: "week-13", status: "COMING SOON" },
-            { week: 14, phase: 3, title: "", slug: "week-14", status: "COMING SOON" },
-            { week: 15, phase: 3, title: "", slug: "week-15", status: "COMING SOON" },
-            { week: 16, phase: 4, title: "", slug: "week-16", status: "COMING SOON" },
-            { week: 17, phase: 4, title: "", slug: "week-17", status: "COMING SOON" },
-            { week: 18, phase: 4, title: "", slug: "week-18", status: "COMING SOON" },
-            { week: 19, phase: 4, title: "", slug: "week-19", status: "COMING SOON" },
-            { week: 20, phase: 4, title: "", slug: "week-20", status: "COMING SOON" }
+            { 
+                week: 1, 
+                phase: 1, 
+                title: "From Foundations to Omnichannel Retail Experiences", 
+                slug: "week-01", 
+                status: "FIELD NOTES PUBLISHED",
+                isPublished: true,
+                content: `
+                    <div class="space-y-6">
+                        <!-- Headline & Tag -->
+                        <div>
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-semibold">
+                                ★ Published Journey Update
+                            </span>
+                            <h4 class="text-xl font-bold font-heading text-white mt-2">
+                                Anti Gravity Journey: From Foundations to Omnichannel Experiences (Weeks 0 & 1)
+                            </h4>
+                        </div>
+
+                        <!-- Week 0 Narrative -->
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                            <div class="flex items-center space-x-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                                <i data-lucide="users" class="w-4 h-4 text-brand-400"></i>
+                                <span>Week 0: Building Foundations & Communication</span>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Before diving into technical work, we kicked off with the classic <strong>Marshmallow Challenge</strong>. While it looks like a simple structural exercise on the surface, from my point of view, it was a brilliant test of foundational skills: a real-time assessment of my learning capacity, how quickly I can adapt to failing prototypes, and most importantly, how effectively I communicate with my team when working toward a shared goal under constraints.
+                            </p>
+                        </div>
+
+                        <!-- Week 1 Narrative -->
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                            <div class="flex items-center space-x-2 text-indigo-300 font-bold text-xs uppercase tracking-wider">
+                                <i data-lucide="store" class="w-4 h-4 text-indigo-400"></i>
+                                <span>Week 1: F&B Sector Evolution & Technical Milestones</span>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                This week transitioned from team-building to deep industry analysis. I explored the massive evolution within the <strong>Food and Beverage (F&B) retail sector</strong>, specifically tracking the paradigm shift from traditional, single-channel storefronts to dynamic <strong>omnichannel retail environments</strong>. Understanding this customer journey is critical for the digital and physical solutions we aim to build.
+                            </p>
+                        </div>
+
+                        <!-- Technical Milestones -->
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                            <div class="flex items-center space-x-2 text-cyan-300 font-bold text-xs uppercase tracking-wider">
+                                <i data-lucide="code-2" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Technical Architecture: Developing the Blog Section</span>
+                            </div>
+                            <ul class="text-xs text-slate-300 space-y-2">
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-brand-400 font-bold">&bull;</span>
+                                    <span><strong>Project Architecture:</strong> Setting up strictly-typed structures with TypeScript and styling with Tailwind CSS.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-brand-400 font-bold">&bull;</span>
+                                    <span><strong>UI Standardization:</strong> Integrating modern component libraries (shadcn UI standard) for clean, reusable modularity.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-brand-400 font-bold">&bull;</span>
+                                    <span><strong>Interactive Components:</strong> Engineering specialized animated elements (like custom dot-border interactive buttons) for responsive engagement.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            { week: 2, phase: 1, title: "", slug: "week-02", status: "COMING SOON", isPublished: false },
+            { week: 3, phase: 1, title: "", slug: "week-03", status: "COMING SOON", isPublished: false },
+            { week: 4, phase: 1, title: "", slug: "week-04", status: "COMING SOON", isPublished: false },
+            { week: 5, phase: 1, title: "", slug: "week-05", status: "COMING SOON", isPublished: false },
+            { week: 6, phase: 2, title: "", slug: "week-06", status: "COMING SOON", isPublished: false },
+            { week: 7, phase: 2, title: "", slug: "week-07", status: "COMING SOON", isPublished: false },
+            { week: 8, phase: 2, title: "", slug: "week-08", status: "COMING SOON", isPublished: false },
+            { week: 9, phase: 2, title: "", slug: "week-09", status: "COMING SOON", isPublished: false },
+            { week: 10, phase: 2, title: "", slug: "week-10", status: "COMING SOON", isPublished: false },
+            { week: 11, phase: 3, title: "", slug: "week-11", status: "COMING SOON", isPublished: false },
+            { week: 12, phase: 3, title: "", slug: "week-12", status: "COMING SOON", isPublished: false },
+            { week: 13, phase: 3, title: "", slug: "week-13", status: "COMING SOON", isPublished: false },
+            { week: 14, phase: 3, title: "", slug: "week-14", status: "COMING SOON", isPublished: false },
+            { week: 15, phase: 3, title: "", slug: "week-15", status: "COMING SOON", isPublished: false },
+            { week: 16, phase: 4, title: "", slug: "week-16", status: "COMING SOON", isPublished: false },
+            { week: 17, phase: 4, title: "", slug: "week-17", status: "COMING SOON", isPublished: false },
+            { week: 18, phase: 4, title: "", slug: "week-18", status: "COMING SOON", isPublished: false },
+            { week: 19, phase: 4, title: "", slug: "week-19", status: "COMING SOON", isPublished: false },
+            { week: 20, phase: 4, title: "", slug: "week-20", status: "COMING SOON", isPublished: false }
         ];
 
         function renderWeekCards(filterPhaseNum = 'all') {
@@ -793,29 +875,30 @@
             filtered.forEach(item => {
                 const weekFormatted = String(item.week).padStart(2, '0');
                 const phaseFormatted = String(item.phase).padStart(2, '0');
+                const isPub = item.isPublished;
                 
                 const card = document.createElement('div');
-                card.className = "week-card glass-card p-5 rounded-2xl cursor-pointer relative overflow-hidden flex flex-col justify-between min-h-[140px] group";
+                card.className = `week-card glass-card p-5 rounded-2xl cursor-pointer relative overflow-hidden flex flex-col justify-between min-h-[140px] group ${isPub ? 'published ring-1 ring-emerald-500/50' : ''}`;
                 card.setAttribute('data-week', item.week);
                 card.setAttribute('data-phase', item.phase);
                 card.onclick = () => openWeekModal(item.week, item.phase);
 
                 card.innerHTML = `
                     <div class="flex items-center justify-between text-xs text-slate-400">
-                        <span class="text-[10px] font-bold font-mono text-brand-400 tracking-wider">PHASE ${phaseFormatted}</span>
-                        <div class="w-2 h-2 rounded-full bg-brand-500/40 group-hover:bg-brand-400 transition-colors"></div>
+                        <span class="text-[10px] font-bold font-mono ${isPub ? 'text-emerald-400' : 'text-brand-400'} tracking-wider">PHASE ${phaseFormatted}</span>
+                        <div class="w-2.5 h-2.5 rounded-full ${isPub ? 'bg-emerald-400 animate-pulse' : 'bg-brand-500/40 group-hover:bg-brand-400'} transition-colors"></div>
                     </div>
                     <div class="my-2 space-y-1">
                         <div class="week-number font-heading font-extrabold text-xl sm:text-2xl text-white tracking-tight transition-transform">
                             WEEK ${weekFormatted}
                         </div>
-                        <div class="text-[11px] font-semibold text-slate-400 group-hover:text-brand-300 transition-colors tracking-wide">
+                        <div class="text-[11px] font-semibold ${isPub ? 'text-emerald-300' : 'text-slate-400 group-hover:text-brand-300'} transition-colors tracking-wide">
                             ${item.status}
                         </div>
                     </div>
-                    <div class="flex items-center justify-between text-[10px] text-slate-500 group-hover:text-slate-300 transition-colors pt-2 border-t border-slate-800/80">
-                        <span>Future Story / Blog</span>
-                        <i data-lucide="arrow-right" class="week-arrow w-3.5 h-3.5 text-slate-400 transition-transform"></i>
+                    <div class="flex items-center justify-between text-[10px] ${isPub ? 'text-emerald-400 font-semibold' : 'text-slate-500 group-hover:text-slate-300'} transition-colors pt-2 border-t border-slate-800/80">
+                        <span>${isPub ? 'Read Full Story' : 'Future Story / Blog'}</span>
+                        <i data-lucide="${isPub ? 'book-open' : 'arrow-right'}" class="week-arrow w-3.5 h-3.5 ${isPub ? 'text-emerald-400' : 'text-slate-400'} transition-transform"></i>
                     </div>
                 `;
                 container.appendChild(card);
@@ -839,11 +922,31 @@
             const modal = document.getElementById('week-modal');
             const weekFormatted = String(weekNum).padStart(2, '0');
             const phaseFormatted = String(phaseNum).padStart(2, '0');
+            const weekData = protoSemWeeks.find(w => w.week === weekNum);
 
             document.getElementById('modal-phase').innerText = `PHASE ${phaseFormatted}`;
             document.getElementById('modal-title').innerText = `WEEK ${weekFormatted}`;
+
+            const modalBody = document.getElementById('modal-body');
+            if (weekData && weekData.content) {
+                modalBody.innerHTML = weekData.content;
+            } else {
+                modalBody.innerHTML = `
+                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-950 border border-brand-500/30 text-brand-400 mx-auto flex items-center justify-center">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-white">Field Notes in Progress</h4>
+                        <p class="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
+                            This week's comprehensive innovation story and solution log is currently being curated. Check back soon as the programme unfolds!
+                        </p>
+                    </div>
+                `;
+            }
+
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            lucide.createIcons();
         }
 
         function closeWeekModal() {
